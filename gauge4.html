@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<!--<script src="responsive.min.js"> </script>-->
+<link rel="stylesheet" href="fonts/fonts.css">
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+
+	
+<style type="text/css">
+		@font-face {
+	font-family: 'KPMGWeb';
+	src: url('KPMGWeb-ExtraLight.eot');
+	src: url('KPMGWeb-ExtraLight.eot?#iefix') format('embedded-opentype'),
+		 url('KPMGWeb-ExtraLight.woff2') format('woff2'),
+		 url('KPMGWeb-ExtraLight.woff') format('woff'),
+		 url('KPMGWeb-ExtraLight.ttf') format('truetype'),
+		 url('KPMGWeb-ExtraLight.svg#KPMGWeb-ExtraLight') format('svg');
+	font-weight: 200;
+	font-style: normal;
+	font-stretch: normal;
+	}
+  
+	#chartdiv {
+	  width: 400px;
+	  height: 500px;
+	  margin-left: 0;
+	  transform: translate(0px,-11px)!important;
+	  display: inline-block;
+	}
+
+	a{
+	  display: none!important;
+	}
+
+	svg{
+	position: absolute;
+	width: 394px;
+	height: 500px;
+	top: -30px!important; 
+	}
+
+	#title{
+	 font-family: KPMGWeb!important;
+	 font-size: 1.6em;
+	 color:#333333;
+	 position: absolute;
+     top: 3%;
+     left: 50%;
+     transform: translateX(-50%);
+     margin-bottom: 10px;
+	display: table;
+
+
+	}
+
+	@media screen and (max-width: 500px) {
+
+	#title{
+	 position: absolute!important;
+	 top: 4.1%!important;
+	 left:50%!important;
+	 transform: translateX(-50%)
+		
+
+	 }
+	}
+
+	@media screen and (max-width: 400px) {
+	  svg {
+		left: -20px!important;
+	  }
+
+	}
+
+	@media screen and (max-width: 350px) {
+	  svg {
+		left: -50px!important;
+	  }
+
+	}
+
+	@media screen and (max-height: 450px) {
+	  svg {
+		top: -15px!important;
+	  }
+	}
+
+	  @media screen and (max-height: 350px) {
+	  svg {
+		top: -50px!important;
+	  }
+
+	}
+	
+		@media screen and (max-height: 490px) {
+	  svg {
+		top: -30px!important;
+	  }
+	}
+	
+	@media screen and (max-width: 680px) {
+	  svg {
+		top: 0!important;
+	  }
+		#title{
+			top:5%;
+		}
+
+	}
+</style>
+ 
+	<title>Arcs Chart</title>
+	</head>
+	<body style="text-align: center;">
+	<div id="title">AV Patents Per Million People</div> 
+	<div id="chartdiv"></div>  
+		
+	  <script>
+		  
+
+			$( window ).on( "orientationchange", function( event ) {
+
+			  if(event.orientation == "landscape" ){
+				 $("#title").css("left","50%")
+				 $("#title").css("transform","translateX(-50%)")
+		  }
+				
+
+});  
+		 
+		  
+
+		  
+
+	  var gaugeChart = AmCharts.makeChart("chartdiv", {
+	  "type": "gauge",
+	  "theme": "light",
+	  "responsive": {
+		"enabled": true
+	  },
+	  "axes": [{
+		"axisAlpha": 0,
+		"tickAlpha": 0,
+		"labelsEnabled": false,
+		"startValue": 0,
+		"endValue": 100,
+		"startAngle": 0,
+		"endAngle": 270,
+		"bands": [{
+		  "color": "#dedede",
+		  "startValue": 0,
+		  "endValue": 100,
+		  "radius": "80%",
+		  "innerRadius": "65%"
+		}, {
+		  "color": "#00338D",
+		  "startValue": 0,
+		  "endValue": 0,
+		  "radius": "80%",
+		  "innerRadius": "65%",
+
+		}, {
+		  "color": "#dedede",
+		  "startValue": 0,
+		  "endValue": 100,
+		  "radius": "60%",
+		  "innerRadius": "45%"
+		}, {
+		  "color": "#0091da",
+		  "startValue": 0,
+		  "endValue": 0,
+		  "radius": "60%",
+		  "innerRadius": "45%",
+
+		}, {
+		  "color": "#dedede",
+		  "startValue": 0,
+		  "endValue": 100,
+		  "radius": "40%",
+		  "innerRadius": "25%"
+		}, {
+		  "color": "#6d2077",
+		  "startValue": 0,
+		  "endValue": 92,
+		  "radius": "40%",
+		  "innerRadius": "25%",
+
+		}, {
+		  "color": "#dedede",
+		  "startValue": 0,
+		  "endValue": 100,
+		  "radius": "20%",
+		  "innerRadius": "5%"
+		}, {
+		  "color": "#005eb8",
+		  "startValue": 0,
+		  "endValue": 68,
+		  "radius": "20%",
+		  "innerRadius": "5%",
+
+		}]
+	  }],
+	  "allLabels": [{
+		"text": "Japan",
+		"x": "49%",
+		"y": "21%",
+		"size": 15,
+		
+		"color": "#333333",
+		"align": "right"
+	  }, {
+		"text": "Germany",
+		"x": "49%",
+		"y": "28%",
+		"size": 15,
+		
+		"color": "#333333",
+		"align": "right"
+	  }, {
+		"text": "South Korea",
+		"x": "49%",
+		"y": "35%",
+		"size": 15,
+	
+		"color": "#333333",
+		"align": "right"
+	  }, {
+		"text": "Sweden",
+		"x": "49%",
+		"y": "41%",
+		"size": 15,
+		
+		"color": "#333333",
+		"align": "right"
+	  },
+
+	  {
+		"text": "24",
+		"x": "56%",
+		"y": "110",
+		"size": 13,
+		
+		"color": "#fff",
+		"align": "right"
+	  },
+	   {
+		"text": "19",
+		"x": "56%",
+		"y": "29.5%",
+		"size": 13,
+		
+		"color": "#fff",
+		"align": "right"
+	  },
+	   {
+		"text": "24",
+		"x": "56%",
+		"y": "36.5%",
+		"size": 13,
+	
+		"color": "#fff",
+		"align": "right"
+	  },
+	   {
+		"text": "9",
+		"x": "53.5%",
+		"y": "43.5%",
+		"size": 13,
+		
+		"color": "#fff",
+		"align": "right"
+	  }
+	],
+	  "export": {
+		"enabled": true
+	  }
+	});
+
+	gaugeChart.addListener("init", function() {
+	  console.log("Initiated!");
+
+	  gaugeChart.axes[0].bands[1].setEndValue(34);
+	  gaugeChart.axes[0].bands[1].setStartValue(0);
+
+	  gaugeChart.axes[0].bands[3].setEndValue(29);
+	gaugeChart.axes[0].bands[3].setStartValue(0)
+
+	  gaugeChart.axes[0].bands[5].setEndValue(24);
+	  gaugeChart.axes[0].bands[5].setStartValue(0);
+
+	  gaugeChart.axes[0].bands[7].setEndValue(23);
+	  gaugeChart.axes[0].bands[7].setStartValue(0);
+	})
+  </script>
+
+
+  
+</body>
+</html>
